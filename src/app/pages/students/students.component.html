@@ -1,0 +1,49 @@
+<table class="table table-responsive-sm" *ngIf="students">
+  <thead class="thead-dark">
+    <tr>
+      <th (click)="orderTable('Id')" scope="col"># <i *ngIf="columnFilter!='Id'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='Id'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort></th>
+      <th (click)="orderTable('Username')" scope="col">
+        Username
+        <i *ngIf="columnFilter!='Username'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='Username'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+      </th>
+      <th (click)="orderTable('Firstname')" scope="col">First Name <i *ngIf="columnFilter!='Firstname'"
+          class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='Firstname'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+      </th>
+      <th (click)="orderTable('Lastname')" scope="col">Last Name <i *ngIf="columnFilter!='Lastname'"
+          class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='Lastname'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+      </th>
+      <th (click)="orderTable('Age')" scope="col">Age <i *ngIf="columnFilter!='Age'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='Age'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+      </th>
+      <th (click)="orderTable('Career')" scope="col">Career <i *ngIf="columnFilter!='Career'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='Career'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+      </th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of students | sort:columnFilter:order">
+      <td>{{item.Id}}</td>
+      <td>{{item.Username}}</td>
+      <td>{{item.Firstname}}</td>
+      <td>{{item.Lastname}}</td>
+      <td>{{item.Age}}</td>
+      <td>{{item.Career}}</td>
+      <td>
+        <!-- <i class="fas fa-eye"></i> -->
+        <i (click)="update(item)" class="fas fa-pencil-alt"></i>
+        <i class="fas fa-trash" (click)="delete(item.id)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--<i class="fas fa-sort">-->
+<style>
+  th {
+    cursor: pointer;
+  }
+</style>

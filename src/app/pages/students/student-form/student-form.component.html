@@ -1,0 +1,53 @@
+<form [formGroup]="form">
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">User name</label>
+    <input type="text" [ngClass]="{ 'is-invalid': !UsernameControl.valid && hasSubmitted }" class="form-control"
+      id="username" aria-describedby="Username" placeholder="Username" formControlName="Username">
+    <small id="username" class="form-text text-muted">This has to be unique</small>
+    <app-error [control]="UsernameControl" [hasSubmitted]="hasSubmitted"></app-error>
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">First name</label>
+    <input type="text" [ngClass]="{ 'is-invalid': !FirstnameControl.valid  && hasSubmitted }" class="form-control "
+      id="Firstname" aria-describedby="Firstname" placeholder="Firstname" formControlName="Firstname">
+    <app-error [control]="FirstnameControl" [hasSubmitted]="hasSubmitted"></app-error>
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Last name</label>
+    <input [ngClass]="{ 'is-invalid': !LastnameControl.valid  && hasSubmitted }" type="text" class="form-control"
+      id="username" aria-describedby="Lastname" placeholder="Lastname" formControlName="Lastname">
+    <app-error [control]="LastnameControl" [hasSubmitted]="hasSubmitted"></app-error>
+
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Career</label>
+    <input [ngClass]="{ 'is-invalid': !CareerControl.valid  && hasSubmitted }" type="text" class="form-control"
+      id="Career" aria-describedby="Career" placeholder="Career" formControlName="Career">
+    <app-error [control]="CareerControl" [hasSubmitted]="hasSubmitted"></app-error>
+
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Age</label>
+    <input [ngClass]="{ 'is-invalid': !AgeControl.valid  && hasSubmitted }" type="number" class="form-control" id="Age"
+      aria-describedby="Age" placeholder="Age" formControlName="Age">
+    <app-error [control]="AgeControl" [hasSubmitted]="hasSubmitted"></app-error>
+
+  </div>
+
+
+  <button *ngIf="!isLoading" [disabled]="!form.valid" (click)="saveStudent()" type="submit" class="btn btn-primary"><i class="fas fa-save"></i>{{formType.charAt(0) + formType.slice(1).toLowerCase()}}</button>
+  <button *ngIf="isLoading" [disabled]="true" type="submit" class="btn btn-primary"><i class="fas fa-spin fa-sync"></i>{{formType.charAt(0) + formType.slice(1).toLowerCase()}}</button>
+
+
+
+</form>
