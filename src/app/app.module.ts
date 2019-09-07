@@ -28,6 +28,7 @@ import { StudentFormComponent } from './pages/students/student-form/student-form
 import { ErrorComponent } from './components/error/error.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { SortComponent } from './components/sort/sort.component';
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 
 
 
@@ -42,7 +43,8 @@ import { SortComponent } from './components/sort/sort.component';
     StudentFormComponent,
     ErrorComponent,
     SortPipe,
-    SortComponent
+    SortComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

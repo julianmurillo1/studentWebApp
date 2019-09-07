@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./sort.component.css']
 })
 export class SortComponent implements OnInit {
-  @Input('')sortData = {}
+  @Input('sortData') sortData:any ;
   constructor() { }
 
   ngOnInit() {

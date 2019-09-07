@@ -1,4 +1,5 @@
 <div class="text-danger" *ngIf="control && control.errors && hasSubmitted ">
      <div *ngIf="control.errors.required"><small>This field is required</small></div>
-     <div *ngIf="control.errors.min"><small>The minimum number is 0</small></div>
+     <div *ngIf="control.errors.min"><small>The minimum number is {{control.errors.min.min}}</small></div>
+     <div *ngIf="control.errors.maxlength"><small>The maximun length is {{control.errors.maxlength.requiredLength}}</small></div>
 </div>

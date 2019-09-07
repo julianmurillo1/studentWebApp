@@ -14,7 +14,7 @@ import { Student } from 'src/app/models/student.model';
 export class UpdateStudentComponent implements OnInit, OnDestroy {
 
   id;
-  constructor(private store:Store<AppState>, private activatedRoute:ActivatedRoute, private studentService:StudentService) { 
+  constructor(private router:Router, private store:Store<AppState>, private activatedRoute:ActivatedRoute, private studentService:StudentService) { 
      
   }
   ngOnInit() {
@@ -27,7 +27,7 @@ export class UpdateStudentComponent implements OnInit, OnDestroy {
     this.studentService.getStudent(this.id).subscribe((res:Student)=>{
               this.store.dispatch(new SetStudentAction(res))
     }, err =>{
-      console.error(err)
+    this.router.navigateByUrl('')
     })
   }
   

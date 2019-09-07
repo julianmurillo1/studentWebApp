@@ -25,16 +25,19 @@ export class StudentFormComponent implements OnInit, OnDestroy {
   formType:FormType
   id;
   student:Student
-  constructor(private fb: FormBuilder, private store:Store<AppState>, private studentService:StudentService, private router:Router) {}
+  constructor(private fb: FormBuilder, private store:Store<AppState>, private studentService:StudentService, private router:Router) {
+    this.form = this.fb.group({
+      username: ["",  Validators.compose([Validators.required, Validators.maxLength(20)  ])],
+      firstname:["",  Validators.compose([Validators.required, Validators.maxLength(20)  ])],
+      lastname:["",  Validators.compose([Validators.required, Validators.maxLength(20)  ])],
+      age: ['', Validators.compose([Validators.required, Validators.min(0)])],
+      career: ["",  Validators.compose([Validators.required, Validators.maxLength(20)  ])],
+    });
+ 
+  }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      Username: ["", Validators.required],
-      Firstname: ["", Validators.required],
-      Lastname: ["", Validators.required],
-      Age: ['', Validators.compose([Validators.required, Validators.min(0)])],
-      Career: ["", Validators.required],
-    });
+
 
 
     this.loadingSub  = this.store.select('ui').subscribe((ui:UiState)=>{
@@ -46,22 +49,22 @@ export class StudentFormComponent implements OnInit, OnDestroy {
         this.formType = data.formType
         if(this.student != data.student){
             this.student = data.student
-            this.id = data.student.Id
+            this.id = data.student.id
             this.setStudentData();
         }
     })
-  }
+}
 
   /**
    * Set student data in the form only in the case 'UPDATE'
    */
   setStudentData(){
         this.form.setValue({
-          Username: this.student.Username,
-          Firstname: this.student.Firstname,
-          Lastname: this.student.Lastname,
-          Age: this.student.Age,
-          Career: this.student.Career
+          username: this.student.username,
+          firstname: this.student.firstname,
+          lastname: this.student.lastname,
+          age: this.student.age,
+          career: this.student.career
         })
   }
 
@@ -70,6 +73,7 @@ export class StudentFormComponent implements OnInit, OnDestroy {
    */
   saveStudent(){
     this.hasSubmitted = true;
+    console.log(this.age.errors)
     if(!this.form.valid) return 
     else{
       this.store.dispatch(new ActivateLoadingAction())
@@ -110,40 +114,40 @@ export class StudentFormComponent implements OnInit, OnDestroy {
   /**
    * @returns Username control
    */ 
-  get UsernameControl():AbstractControl {
-    return this.form.controls['Username'];
+   get  username() {
+    return this.form.get('username');
   }
 
 
   /**
    * @returns Firstname control
    */ 
-   get FirstnameControl():AbstractControl {
-    return this.form.controls['Firstname'];
+  get   firstname():AbstractControl {
+    return this.form.get('firstname');
   }
 
 
   /**
    * @returns Lastname control
    */ 
-   get LastnameControl():AbstractControl {
-    return this.form.controls['Lastname'];
+  get  lastname():AbstractControl {
+    return this.form.controls['lastname'];
   }
 
 
   /**
    * @returns Age control
    */ 
-   get AgeControl():AbstractControl {
-    return this.form.controls['Age'];
+  get   age():AbstractControl {
+    return this.form.controls['age'];
   }
 
 
   /**
    * @returns Career control
    */ 
-   get CareerControl():AbstractControl {
-    return this.form.controls['Career'];
+  get   career():AbstractControl {
+    return this.form.controls['career'];
   }
 
 

@@ -1,38 +1,38 @@
 <table class="table table-responsive-sm" *ngIf="students">
   <thead class="thead-dark">
     <tr>
-      <th (click)="orderTable('Id')" scope="col"># <i *ngIf="columnFilter!='Id'" class="fas fa-sort"></i>
-        <app-sort *ngIf="columnFilter=='Id'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort></th>
-      <th (click)="orderTable('Username')" scope="col">
+      <th (click)="orderTable('id')" scope="col"># <i *ngIf="columnFilter!='id'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='id'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort></th>
+      <th (click)="orderTable('username')" scope="col">
         Username
-        <i *ngIf="columnFilter!='Username'" class="fas fa-sort"></i>
-        <app-sort *ngIf="columnFilter=='Username'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+        <i *ngIf="columnFilter!='username'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='username'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
       </th>
-      <th (click)="orderTable('Firstname')" scope="col">First Name <i *ngIf="columnFilter!='Firstname'"
+      <th (click)="orderTable('firstname')" scope="col">First Name <i *ngIf="columnFilter!='firstname'"
           class="fas fa-sort"></i>
-        <app-sort *ngIf="columnFilter=='Firstname'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+        <app-sort *ngIf="columnFilter=='firstname'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
       </th>
-      <th (click)="orderTable('Lastname')" scope="col">Last Name <i *ngIf="columnFilter!='Lastname'"
+      <th (click)="orderTable('lastname')" scope="col">Last Name <i *ngIf="columnFilter!='lastname'"
           class="fas fa-sort"></i>
-        <app-sort *ngIf="columnFilter=='Lastname'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+        <app-sort *ngIf="columnFilter=='lastname'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
       </th>
-      <th (click)="orderTable('Age')" scope="col">Age <i *ngIf="columnFilter!='Age'" class="fas fa-sort"></i>
-        <app-sort *ngIf="columnFilter=='Age'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+      <th (click)="orderTable('age')" scope="col">Age <i *ngIf="columnFilter!='age'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='age'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
       </th>
-      <th (click)="orderTable('Career')" scope="col">Career <i *ngIf="columnFilter!='Career'" class="fas fa-sort"></i>
-        <app-sort *ngIf="columnFilter=='Career'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
+      <th (click)="orderTable('career')" scope="col">Career <i *ngIf="columnFilter!='career'" class="fas fa-sort"></i>
+        <app-sort *ngIf="columnFilter=='career'" [sortData]="{columnFilter:columnFilter, order:order}"></app-sort>
       </th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of students | sort:columnFilter:order">
-      <td>{{item.Id}}</td>
-      <td>{{item.Username}}</td>
-      <td>{{item.Firstname}}</td>
-      <td>{{item.Lastname}}</td>
-      <td>{{item.Age}}</td>
-      <td>{{item.Career}}</td>
+      <td>{{item.id}}</td>
+      <td>{{item.username}}</td>
+      <td>{{item.firstname}}</td>
+      <td>{{item.lastname}}</td>
+      <td>{{item.age}}</td>
+      <td>{{item.career}}</td>
       <td>
         <!-- <i class="fas fa-eye"></i> -->
         <i (click)="update(item)" class="fas fa-pencil-alt"></i>

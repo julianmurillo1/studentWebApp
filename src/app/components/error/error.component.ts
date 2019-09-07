@@ -9,7 +9,9 @@ import { FormControl } from '@angular/forms';
 export class ErrorComponent implements OnInit {
   @Input('control') control:FormControl
   @Input('hasSubmitted') hasSubmitted:boolean ;
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit() {
    }

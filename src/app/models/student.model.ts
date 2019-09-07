@@ -2,18 +2,19 @@
 
 
 export class Student{
-    Username:string;
-    Firstname:string;
-    Lastname:string;
-    Age:number;
-    Career:string;
-    Id;
+    username:string;
+    firstname:string;
+    lastname:string;
+    age:number;
+    career:string;
+    id;
 
     constructor(obj){
-        this.Username = obj && obj.Username || null
-        this.Firstname =  obj && obj.Firstname || null
-        this.Age = obj && obj.Age || null
-        this.Career =  obj && obj.Career || null
+        this.username = obj && obj.username || null
+        this.firstname =  obj && obj.firstname || null
+        this.lastname =  obj && obj.lastname || null
+        this.age = obj && obj.age || null
+        this.career =  obj && obj.career || null
     }
 }
 
